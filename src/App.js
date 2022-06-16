@@ -13,7 +13,7 @@ export default function App() {
   );
 
   console.log(checkedState);
-  // useState for calculated total budget
+  // useState for calculated total budget 
   const [total, setTotal] = useState(0);
   // every time we click a checkbox, the state updates to true if the conditions occur, otherwise...remains false
   const handleOnChange = (position) => {
@@ -27,9 +27,12 @@ export default function App() {
     // so I created a new variable to apply the reduce() method to it
     const totalPrice = updatedCheckedState.reduce((sum, currentState, id) => {
       if (currentState === true) {
+        // if true -> add price.value to "sum" through the below operation
         return sum + services[id].price;
       }
+      // if false -> don´t add price.value & return the previous "sum" amount
       return sum;
+      // "0" is the accumulator value for "sum"
     }, 0);
     // applied above variable to setTotal to get the final price
     setTotal((prev) => (prev = totalPrice));
@@ -39,21 +42,21 @@ export default function App() {
     <div className="App">
       <h3>Which services do you require?</h3>
       <div className="services-list">
-        {services.map(({ name, price }, id) => {
+        {services.map(({ name, price }, index) => {
           return (
-            <div key={id}>
+            <div key={index}>
               <div className="services-list-item">
                 <input
                   type="checkbox"
-                  id={`custom-checkbox-${id}`}
+                  id={`custom-checkbox-${index}`}
                   name={name}
                   value={name}
                   // this attribute can be either true or false, depending on "checkState" current state
-                  checked={checkedState[id]}
+                  checked={checkedState[index]}
                   // added this () so that it changes the state when is clicked or unclicked by handleOnChange
-                  onChange={() => handleOnChange(id)}
+                  onChange={() => handleOnChange(index)}
                 />
-                <label htmlFor={`custom-checkbox-${id}`}>{name}</label>
+                <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
                 <span className="price-section">
                   {getFormattedPrice(price)}
                 </span>
