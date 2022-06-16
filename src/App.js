@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { services } from "./components/services";
+import { ServicesList } from "./components/Services-List";
 import "./index.css";
 
 // --------------------------------------- LOGIC -------------------------------------------------------
@@ -9,11 +9,11 @@ const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
 export default function App() {
   // create an [] to store the initial state (unchecked = false) of the checkboxes
   const [checkedState, setCheckedState] = useState(
-    new Array(services.length).fill(false)
+    new Array(ServicesList.length).fill(false)
   );
 
   console.log(checkedState);
-  // useState for calculated total budget 
+  // useState for calculated total budget
   const [total, setTotal] = useState(0);
   // every time we click a checkbox, the state updates to true if the conditions occur, otherwise...remains false
   const handleOnChange = (position) => {
@@ -28,7 +28,7 @@ export default function App() {
     const totalPrice = updatedCheckedState.reduce((sum, currentState, id) => {
       if (currentState === true) {
         // if true -> add price.value to "sum" through the below operation
-        return sum + services[id].price;
+        return sum + ServicesList[id].price;
       }
       // if false -> don´t add price.value & return the previous "sum" amount
       return sum;
@@ -42,21 +42,21 @@ export default function App() {
     <div className="App">
       <h3>Which services do you require?</h3>
       <div className="services-list">
-        {services.map(({ name, price }, index) => {
+        {ServicesList.map(({ name, price }, id) => {
           return (
-            <div key={index}>
+            <div key={id}>
               <div className="services-list-item">
                 <input
                   type="checkbox"
-                  id={`custom-checkbox-${index}`}
+                  id={`custom-checkbox-${id}`}
                   name={name}
                   value={name}
                   // this attribute can be either true or false, depending on "checkState" current state
-                  checked={checkedState[index]}
+                  checked={checkedState[id]}
                   // added this () so that it changes the state when is clicked or unclicked by handleOnChange
-                  onChange={() => handleOnChange(index)}
+                  onChange={() => handleOnChange(id)}
                 />
-                <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                <label htmlFor={`custom-checkbox-${id}`}>{name}</label>
                 <span className="price-section">
                   {getFormattedPrice(price)}
                 </span>
