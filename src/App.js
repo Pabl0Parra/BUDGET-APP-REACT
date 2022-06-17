@@ -11,24 +11,27 @@ function App() {
 
   useEffect(() => {
     calculateTotal();
-  });
+    console.log("useEffect up and running");
+    console.log(cost);
+  }, [cost]);
 
   const handleOnChange = (event) => {
     let { name } = event.target;
     let newCost = { ...cost };
     newCost[name] = !newCost[name];
-    setCost(newCost);
+
+    setCost((prev) => (prev = newCost));
   };
 
   const calculateTotal = (event) => {
     let newTotal =
-      0 + (cost.website && 500) + (cost.seo && 300) + (cost.google && 200);
+      (cost.website && 500) + (cost.seo && 300) + (cost.google && 200);
 
-    setTotal(newTotal);
+    setTotal((prev) => (prev = newTotal));
   };
 
   return (
-    <div className="App">
+    <div classname="App">
       <h3> Which services do you require?</h3>
       <p>
         <input
