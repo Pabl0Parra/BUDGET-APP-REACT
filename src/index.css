@@ -15,15 +15,3 @@ code {
 .price-section {
   padding: 1%;
 }
-
-.modal {
-  border: solid 3px rgb(2, 1, 1);
-  border-radius: 10px;
-  max-width: 336px;
-  height: 80px;
-  padding: 1%;
-}
-
-input[type="number"] {
-  text-align: right;
-}

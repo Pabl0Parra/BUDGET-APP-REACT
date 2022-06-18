@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import { useState, useEffect } from "react";
 import "./App.css";
+import Panel from "./components/Panel";
 
 function App() {
   const [total, setTotal] = useState(0);
@@ -55,26 +56,11 @@ function App() {
         A website (500 €)
       </p>
       {isWebChecked && (
-        <div className="modal">
-          <label htmlFor="pages">Number of web pages</label>
-          <input
-            type="number"
-            name="pages"
-            onChange={handleOnChange}
-            value={cost.pages}
-            min="1"
-          />
-          <br />
-          <br />
-          <label htmlFor="lang">Number of languages </label>
-          <input
-            type="number"
-            name="languages"
-            onChange={handleOnChange}
-            value={cost.languages}
-            min="1"
-          ></input>
-        </div>
+        <Panel
+          function={handleOnChange}
+          pages={cost.pages}
+          languages={cost.languages}
+        />
       )}
       <p>
         <input
