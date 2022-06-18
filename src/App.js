@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import { useState, useEffect } from "react";
 import "./App.css";
 
@@ -7,25 +8,36 @@ function App() {
     website: false,
     seo: false,
     google: false,
+    pages: 1,
+    languages: 1,
+    total: 0,
   });
+  const [isWebChecked, setIsWebChecked] = useState(false);
 
   useEffect(() => {
     calculateTotal();
-    console.log("useEffect up and running");
-    console.log(cost);
+
+    setIsWebChecked(cost.website);
   }, [cost]);
 
-  const handleOnChange = (event) => {
-    let { name } = event.target;
-    let newCost = { ...cost };
-    newCost[name] = !newCost[name];
-
-    setCost((prev) => (prev = newCost));
-  };
+  function handleOnChange(event) {
+    const { name, value, type, checked } = event.target;
+    setCost((prevCost) => {
+      return {
+        ...prevCost,
+        [name]: type === "checkbox" ? checked : value,
+      };
+    });
+  }
 
   const calculateTotal = (event) => {
     let newTotal =
-      (cost.website && 500) + (cost.seo && 300) + (cost.google && 200);
+      0 +
+      (cost.website && 500) +
+      (cost.seo && 300) +
+      (cost.google && 200) +
+      ((cost.pages > 1 || cost.languages > 1) &&
+        cost.pages * cost.languages * 30);
 
     setTotal((prev) => (prev = newTotal));
   };
@@ -42,6 +54,28 @@ function App() {
         />{" "}
         A website (500 €)
       </p>
+      {isWebChecked && (
+        <div className="modal">
+          <label htmlFor="pages">Number of web pages</label>
+          <input
+            type="number"
+            name="pages"
+            onChange={handleOnChange}
+            value={cost.pages}
+            min="1"
+          />
+          <br />
+          <br />
+          <label htmlFor="lang">Number of languages </label>
+          <input
+            type="number"
+            name="languages"
+            onChange={handleOnChange}
+            value={cost.languages}
+            min="1"
+          ></input>
+        </div>
+      )}
       <p>
         <input
           type="checkbox"
