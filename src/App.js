@@ -9,14 +9,15 @@ function App() {
     seo: false,
     google: false,
     pages: 1,
-    languages: "",
+    languages: 1,
+    total: 0,
   });
   const [isWebChecked, setIsWebChecked] = useState(false);
 
   // calculateTotal have to implement useCallback hooks since the calculation depends on cost state
   const calculateTotal = useCallback(
     (event) => {
-      const newTotal =
+      let newTotal =
         0 +
         (cost.website && 500) +
         (cost.seo && 300) +
@@ -69,13 +70,13 @@ function App() {
           functionPages={(e) => setCost({ ...cost, pages: e.target.value })}
           functionLang={(e) => setCost({ ...cost, languages: e.target.value })}
           // functionIncPages={handleOnChange}
+          pages={cost.pages}
           languages={cost.languages}
         >
           <br />
           <br />
         </Panel>
       )}
-
       <p>
         <input
           type="checkbox"
