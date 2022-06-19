@@ -7,7 +7,7 @@ const Panel = (props) => {
       <PanelInputs
         type="number"
         name="pages"
-        onChange={props.function}
+        onChange={props.functionPages}
         value={props.pages}
         min="1"
       />
@@ -17,7 +17,7 @@ const Panel = (props) => {
       <PanelInputs
         type="number"
         name="languages"
-        onChange={props.function}
+        onChange={props.functionLang}
         value={props.languages}
         min="1"
       />
