@@ -15,6 +15,7 @@ function App() {
   });
   const [isWebChecked, setIsWebChecked] = useState(false);
 
+  // calculateTotal have to implement useCallback hooks since the calculation depends on cost state
   const calculateTotal = useCallback(
     (event) => {
       let newTotal =
@@ -29,6 +30,7 @@ function App() {
     [cost]
   );
 
+  // Create calculation trigger, where calculateTotal will be called on any cost changes
   useEffect(() => {
     calculateTotal();
   }, [cost, calculateTotal]);
@@ -44,6 +46,7 @@ function App() {
     [cost]
   );
 
+  //add useEffect watcher to reset both cost.pages & cost.languages when deselect cost.website
   useEffect(() => {
     !cost.website &&
       (cost.pages > 1 || cost.languages > 1) &&
@@ -64,6 +67,7 @@ function App() {
       </p>
       {isWebChecked && (
         <Panel
+          // update the cost.pages & cost.languages state whenever the input value change with this
           functionPages={(e) => setCost({ ...cost, pages: e.target.value })}
           functionLang={(e) => setCost({ ...cost, languages: e.target.value })}
           pages={cost.pages}
@@ -71,12 +75,6 @@ function App() {
         >
           <br />
           <br />
-          <label htmlFor="lang">Number of languages </label>
-          <input
-            type="number"
-            name="languages"
-            onChange={(e) => setCost({ ...cost, languages: e.target.value })}
-          />
         </Panel>
       )}
       <p>
