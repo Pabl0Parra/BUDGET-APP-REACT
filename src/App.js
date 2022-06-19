@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import Panel from "./components/Panel";
@@ -10,15 +9,14 @@ function App() {
     seo: false,
     google: false,
     pages: 1,
-    languages: 1,
-    total: 0,
+    languages: "",
   });
   const [isWebChecked, setIsWebChecked] = useState(false);
 
   // calculateTotal have to implement useCallback hooks since the calculation depends on cost state
   const calculateTotal = useCallback(
     (event) => {
-      let newTotal =
+      const newTotal =
         0 +
         (cost.website && 500) +
         (cost.seo && 300) +
@@ -70,13 +68,14 @@ function App() {
           // update the cost.pages & cost.languages state whenever the input value change with this
           functionPages={(e) => setCost({ ...cost, pages: e.target.value })}
           functionLang={(e) => setCost({ ...cost, languages: e.target.value })}
-          pages={cost.pages}
+          // functionIncPages={handleOnChange}
           languages={cost.languages}
         >
           <br />
           <br />
         </Panel>
       )}
+
       <p>
         <input
           type="checkbox"
@@ -95,7 +94,6 @@ function App() {
         />
         A Google Ads Campaign (200 €)
       </p>
-
       <p>
         <strong>Total price: {total} €</strong>
       </p>
