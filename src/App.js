@@ -34,16 +34,22 @@ function App() {
     calculateTotal();
   }, [cost, calculateTotal]);
 
-  const handleOnChange = useCallback(
-    (event) => {
-      const { name } = event.target;
-      const newCost = { ...cost };
-      newCost[name] = !newCost[name];
-      setCost((prev) => newCost);
-      setIsWebChecked(newCost.website);
-    },
-    [cost]
-  );
+  const handleOnChange = (event) => {
+    const { name } = event.target;
+    const newCost = { ...cost };
+    newCost[name] = !newCost[name];
+    setCost((prev) => newCost);
+    setIsWebChecked(newCost.website);
+  };
+
+  const eventHandler = (e) => {
+    console.log(e);
+    const { name, value } = e.target;
+    setCost((prevCost) => ({
+      ...prevCost,
+      [name]: value <= 1 ? 1 : parseInt(value),
+    }));
+  };
 
   //add useEffect watcher to reset both cost.pages & cost.languages when deselect cost.website
   useEffect(() => {
@@ -69,13 +75,13 @@ function App() {
           // update the cost.pages & cost.languages state whenever the input value change with this
           functionPages={(e) => setCost({ ...cost, pages: e.target.value })}
           functionLang={(e) => setCost({ ...cost, languages: e.target.value })}
-          // functionIncPages={handleOnChange}
+          functionIncPages={eventHandler}
+          functionDecLang={eventHandler}
+          functionIncLang={eventHandler}
+          functionDecPages={eventHandler}
           pages={cost.pages}
           languages={cost.languages}
-        >
-          <br />
-          <br />
-        </Panel>
+        ></Panel>
       )}
       <p>
         <input

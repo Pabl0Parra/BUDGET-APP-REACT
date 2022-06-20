@@ -12,10 +12,11 @@ const Panel = (props) => {
         <div className="col-auto">
           <button
             type="button"
-            name="incPages"
+            name="pages"
             className="btn btn-danger btn-sm"
-            // onChange={props.functionIncPages}
-            // value={props.pages}
+            onClick={props.functionIncPages}
+            value={props.pages + 1}
+            min="1"
           >
             +
           </button>
@@ -24,7 +25,7 @@ const Panel = (props) => {
           <PanelInputs
             type="number"
             name="pages"
-            className="form-control"
+            className="form-control smaller-input"
             onChange={props.functionPages}
             value={props.pages}
             min="1"
@@ -33,8 +34,11 @@ const Panel = (props) => {
         <div className="col-auto">
           <button
             type="button"
-            name="decPages"
+            name="pages"
             className="btn btn-danger btn-sm"
+            onClick={props.functionDecPages}
+            value={props.pages - 1}
+            min="1"
           >
             -
           </button>
@@ -49,8 +53,11 @@ const Panel = (props) => {
         <div className="col-auto">
           <button
             type="button"
-            name="incLang"
+            name="languages"
             className="btn btn-danger btn-sm"
+            onClick={props.functionIncLang}
+            value={props.languages + 1}
+            min="1"
           >
             +
           </button>
@@ -68,8 +75,11 @@ const Panel = (props) => {
         <div className="col-auto">
           <button
             type="button"
-            name="decLang"
+            name="languages"
             className="btn btn-danger btn-sm"
+            onClick={props.functionDecLang}
+            value={props.languages - 1}
+            min="1"
           >
             -
           </button>

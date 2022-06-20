@@ -14,6 +14,7 @@ export const PanelInputs = styled.input`
   text-align: center;
   cursor: pointer;
   border: none;
+  max-width: 60px !important;
 `;
 
 export default PanelWrapper;
