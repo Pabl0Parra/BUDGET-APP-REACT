@@ -63,6 +63,7 @@ function App() {
       <h3> Which services do you require?</h3>
       <p>
         <input
+          className="checkbox"
           type="checkbox"
           name="website"
           onChange={handleOnChange}
