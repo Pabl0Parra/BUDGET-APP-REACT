@@ -4,14 +4,27 @@ import Panel from "./components/Panel";
 
 function App() {
   const [total, setTotal] = useState(0);
-  const [cost, setCost] = useState({
-    website: false,
-    seo: false,
-    google: false,
-    pages: 1,
-    languages: 1,
-    total: 0,
+  const [cost, setCost] = useState(
+    // fetch all data saved in localStorage & JSON.parse to convert the string back to a JSON object
+    // || if nothing on localStorage -> use the default value
+    JSON.parse(localStorage.getItem("cost")) || {
+      website: false,
+      seo: false,
+      google: false,
+      pages: 1,
+      languages: 1,
+      total: 0,
+    }
+  );
+
+  // apply useEffect to add object to localStorage whenever the value of our state changes
+  useEffect(() => {
+    if (cost) {
+      // JSON.string... to convert JSON object to JSON text stored in a string which can be sent to the server
+      window.localStorage.setItem("cost", JSON.stringify(cost));
+    }
   });
+
   const [isWebChecked, setIsWebChecked] = useState(false);
 
   // calculateTotal have to implement useCallback hooks since the calculation depends on cost state
