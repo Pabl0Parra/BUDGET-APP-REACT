@@ -19,11 +19,9 @@ function App() {
 
   // apply useEffect to add object to localStorage whenever the value of our state changes
   useEffect(() => {
-    if (cost) {
-      // JSON.string... to convert JSON object to JSON text stored in a string which can be sent to the server
-      window.localStorage.setItem("cost", JSON.stringify(cost));
-    }
-  });
+    // JSON.string... to convert JSON object to JSON text stored in a string which can be sent to the server
+    window.localStorage.setItem("cost", JSON.stringify(cost));
+  }, [cost]);
 
   const [isWebChecked, setIsWebChecked] = useState(false);
 
