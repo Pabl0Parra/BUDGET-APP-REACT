@@ -16,7 +16,6 @@ const Panel = (props) => {
             className="btn btn-danger btn-sm"
             onClick={props.functionIncPages}
             value={props.pages + 1}
-            min="1"
           >
             +
           </button>
@@ -38,7 +37,6 @@ const Panel = (props) => {
             className="btn btn-danger btn-sm"
             onClick={props.functionDecPages}
             value={props.pages - 1}
-            min="1"
           >
             -
           </button>
@@ -57,7 +55,6 @@ const Panel = (props) => {
             className="btn btn-danger btn-sm"
             onClick={props.functionIncLang}
             value={props.languages + 1}
-            min="1"
           >
             +
           </button>
@@ -69,7 +66,6 @@ const Panel = (props) => {
             className="form-control"
             onChange={props.functionLang}
             value={props.languages}
-            min="1"
           />
         </div>
         <div className="col-auto">
@@ -79,7 +75,6 @@ const Panel = (props) => {
             className="btn btn-danger btn-sm"
             onClick={props.functionDecLang}
             value={props.languages - 1}
-            min="1"
           >
             -
           </button>
