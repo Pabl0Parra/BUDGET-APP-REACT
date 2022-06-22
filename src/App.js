@@ -28,10 +28,10 @@ function App() {
   function addProduct(data) {
     const { type, name, value } = data;
 
-    if (type !== "checkbox" && value && !value.toString().match(/^[0-9 ]+$/))
+    if (type !== "checkbox" && value && !value.toString().match(/^0*[1-9]\d*$/))
       return;
 
-    if (parseInt(value) < 0) return;
+    if (parseInt(value) < 1) return;
 
     setBudgetFormData((prevFormData) => ({
       ...prevFormData,
@@ -50,7 +50,8 @@ function App() {
       <BudgetForm budgetFormData={budgetFormData} addProduct={addProduct} />
       <p>
         <strong>
-          Total price: {/* component to format number in an input  */}
+          Total price:
+          {/* component to format number in an input  */}
           <NumberFormat
             value={totalCost}
             displayType={"text"}
