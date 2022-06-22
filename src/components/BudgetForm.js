@@ -12,18 +12,21 @@ export default function BudgetForm(props) {
         id="webSite"
         label="A website (500 €)"
       />
+
       {props.budgetFormData["webSite"] && (
         <Panel
           budgetFormData={props.budgetFormData}
           addProduct={props.addProduct}
         />
       )}
+
       <Checkbox
         budgetFormData={props.budgetFormData}
         addProduct={props.addProduct}
         id="seo"
         label="A SEO consultancy (300 €)"
       />
+
       <Checkbox
         budgetFormData={props.budgetFormData}
         addProduct={props.addProduct}
