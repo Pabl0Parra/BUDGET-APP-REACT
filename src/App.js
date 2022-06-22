@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import NumberFormat from "react-number-format";
 import BudgetForm from "./components/BudgetForm";
 
 function App() {
@@ -49,7 +49,16 @@ function App() {
       <h3> Which services do you require?</h3>
       <BudgetForm budgetFormData={budgetFormData} addProduct={addProduct} />
       <p>
-        <strong>Total price: {totalCost} €</strong>
+        <strong>
+          Total price: {/* component to format number in an input  */}
+          <NumberFormat
+            value={totalCost}
+            displayType={"text"}
+            thousandSeparator={true}
+            prefix={"$"}
+            renderText={(value, props) => <div {...props}>{value}</div>}
+          />
+        </strong>
       </p>
     </div>
   );
