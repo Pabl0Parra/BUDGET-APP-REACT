@@ -15,3 +15,10 @@ code {
 .price-section {
   padding: 1%;
 }
+
+.panel {
+  border: solid 3px rgb(2, 1, 1);
+  border-radius: 10px;
+  max-width: 400px;
+  padding: 1rem;
+}
