@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import BudgetForm from "./components/BudgetForm";
 
 function App() {
-  const [budgetFormData, setBudgetFormData] = useState({
-    webSite: false,
-    seo: false,
-    google: false,
-    pages: 1,
-    languages: 1,
+  const [budgetFormData, setBudgetFormData] = useState(() => {
+    // getting stored value
+    const saved = localStorage.getItem("budgetFormData");
+    const initialValue = JSON.parse(saved);
+    return (
+      initialValue || {
+        webSite: false,
+        seo: false,
+        google: false,
+        pages: 1,
+        languages: 1,
+      }
+    );
   });
 
   const totalCost =
@@ -31,6 +38,11 @@ function App() {
       [name]: type === "checkbox" ? !prevFormData[name] : value,
     }));
   }
+
+  // saving current choices into localStorage
+  useEffect(() => {
+    localStorage.setItem("budgetFormData", JSON.stringify(budgetFormData));
+  }, [budgetFormData]);
 
   return (
     <div className="App">
