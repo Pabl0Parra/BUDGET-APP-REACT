@@ -1,19 +1,21 @@
 import { NavLink } from "react-router-dom";
+import "../styles/NavBar.css";
 
 const NavBar = () => (
-  <div>
+  <nav className="nav">
     <ul>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink clasName="nav-link" to="/">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/Estimate">Estimate</NavLink>
-      </li>
-      <li>
-        <NavLink to="/ajksdfkjhasdk">404 error</NavLink>
+        <NavLink clasName="nav-link" to="/Estimate">
+          Estimate
+        </NavLink>
       </li>
     </ul>
-  </div>
+  </nav>
 );
 
 export default NavBar;

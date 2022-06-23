@@ -52,7 +52,7 @@ function Estimate(props) {
         budgetFormData={budgetFormData}
         addProduct={addProduct}
       />
-      <p>
+      <div className="price-section">
         <strong>
           Total price:
           {/* component to format number in an input  */}
@@ -64,7 +64,7 @@ function Estimate(props) {
             renderText={(value, props) => <div {...props}>{value}</div>}
           />
         </strong>
-      </p>
+      </div>
     </div>
   );
 }
