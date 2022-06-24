@@ -48,7 +48,7 @@ function Estimate(props) {
   return (
     <div className="row grid">
       <div className="column create-budget">
-        <h3> Which services do you require?</h3>
+        <h3 className="title"> Which services do you require?</h3>
         <BudgetForm
           className="test"
           budgetFormData={budgetFormData}

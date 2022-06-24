@@ -1,19 +1,14 @@
 body {
   margin: 0 !important;
+  font-family: "Caveat", cursive, sans-serif !important;
 
-  font-family: "Caveat", cursive !important;
-
-  /* font-family: -apple-system, Fira Sans, "BlinkMacSystemFont", "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue",
-    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: "Caveat", cursive;
-  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace; */
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .price-section {
@@ -40,7 +35,6 @@ code {
 
 .quantity button {
   background-color: #eb3c68;
-
   border: 0;
   border-radius: 3px;
   color: white;
@@ -63,5 +57,5 @@ code {
 }
 
 .check {
-  padding: 0.6rem;
+  padding: 0.5rem;
 }

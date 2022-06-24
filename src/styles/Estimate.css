@@ -10,6 +10,7 @@
   width: 50%;
   padding: 2rem;
   background-color: #3fc1c9;
+  min-height: 78.5vh;
 }
 
 .retrieve-budget {
@@ -18,4 +19,8 @@
   padding: 2rem;
   background-color: #fc5185;
   height: auto;
+}
+
+.title {
+  font-weight: bolder;
 }
