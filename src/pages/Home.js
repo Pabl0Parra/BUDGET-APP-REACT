@@ -7,6 +7,10 @@ export default function Home() {
       <div className="inner-header flex">
         <h1>Let's create your next budget</h1>
       </div>
+      <div>
+        <p>Press Budget to start working on your next estimate</p>
+      </div>
+
       {/*--Waves Container-*/}
       <div>
         <svg

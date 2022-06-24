@@ -1,16 +1,19 @@
 body {
   margin: 0 !important;
 
-  font-family: -apple-system, Fira Sans, "BlinkMacSystemFont", "Segoe UI",
+  font-family: "Caveat", cursive !important;
+
+  /* font-family: -apple-system, Fira Sans, "BlinkMacSystemFont", "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "Caveat", cursive;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace; */
 }
 
 .price-section {
@@ -37,6 +40,7 @@ code {
 
 .quantity button {
   background-color: #eb3c68;
+
   border: 0;
   border-radius: 3px;
   color: white;
@@ -49,6 +53,8 @@ code {
 }
 
 .quantity input {
+  font-family: "Caveat", cursive;
+  font-weight: 600;
   padding: 1rem;
   text-align: center;
   border: none;
