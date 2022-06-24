@@ -1,0 +1,21 @@
+.grid {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.create-budget {
+  border-right: solid 1px grey;
+  flex-direction: column;
+  width: 50%;
+  padding: 2rem;
+  background-color: #3fc1c9;
+}
+
+.retrieve-budget {
+  flex-direction: column;
+  width: 50%;
+  padding: 2rem;
+  background-color: #fc5185;
+  height: auto;
+}
